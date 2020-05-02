@@ -47,7 +47,7 @@ var deferUnhandledRejectionCheck;
     }
 
     deferUnhandledRejectionCheck = function(promise) {
-        promises.push(promise);
+        promises.push(promise);F
         setTimeout(unhandledRejectionCheck, 1);
     };
 
@@ -775,6 +775,9 @@ function parseLineInfo(line) {
 }
 
 function setBounds(firstLineError, lastLineError) {
+    if (Object.keys(firstLineError).length === 0) { 
+        return;
+    }
     if (!longStackTracesIsSupported()) return;
     var firstStackLines = (firstLineError.stack || "").split("\n");
     var lastStackLines = (lastLineError.stack || "").split("\n");
