@@ -797,9 +797,9 @@ module.exports = function (
   }
 
   function setBounds(firstLineError, lastLineError) {
-    // if (Object.keys(firstLineError).length === 0) {
-    //     return;
-    // }
+    if (Object.keys(firstLineError).length === 0) {
+      return;
+    }
 
     if (!longStackTracesIsSupported()) return;
     var firstStackLines = (firstLineError.stack || '').split('\n');
